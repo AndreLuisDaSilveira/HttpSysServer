@@ -537,6 +537,7 @@ namespace Microsoft.AspNetCore.Server.HttpSys.Listener
         }
 
         [ConditionalFact]
+        [OSSkipCondition(OperatingSystems.Windows, WindowsVersions.Win7, WindowsVersions.Win2008R2, SkipReason = "Flaky HttpClient on NT 6.1")]
         public async Task Caching_SetTtlAndStatusCode_Cached()
         {
             string address;
